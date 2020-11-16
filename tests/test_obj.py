@@ -23,9 +23,17 @@ class VesselClassTest(unittest.TestCase):
 
     def test_set_get_item(self):
         self.vessel.set_item(self.item)
+
         get_item = self.vessel.get_item(self.item['code'])
         self.assertEqual(get_item,self.item)
 
+        self.vessel.deactivate_item('1234B1C7')
+        
+        item = self.vessel.get_item('1234B1C7')
+        self.assertEqual(item['active'],False)
+    
+    # def test_deactivate_item(self):
+    
     def test_isValidItemCode(self):
         self.assertTrue(Vessel.isValidItemCode('1234B1V1'))
 

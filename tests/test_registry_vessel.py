@@ -4,6 +4,7 @@ from app import app
 
 class RegistryTestCase(unittest.TestCase):
     vessel_dict = {'code':'AB202', 'items':[]}
+    item_dict = {'code':'1234B2C1','name':'Motor','location':'Brasil'}
     url = '/vessel'
     def setUp(self):
         self.app = app.test_client()
