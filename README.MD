@@ -2,11 +2,20 @@
 
 ## Technologies
 
-- 
+- Flask v1.1.1
+- Python v3.7.3
+- unittest
 
 ## API Usage
 
+    - (GET) /vessel - it should return all vessels code or []
+    - (GET) /vessel/<vessel_code> - it should return the vessel code or a "not found" message
 
+    - (POST) /vessel - it should register the vessel code sent by body request in JSON format
+    Exemple:
+    `
+        {"code":"AB127"}
+    `
 
 ## Installation
 
