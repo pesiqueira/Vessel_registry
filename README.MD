@@ -25,7 +25,9 @@
         Exemple:
         ```
             [
-                {"code":"1234B1C8","location":"Brasil", "name": "Motor"},{"code":"1234B1C7","location":"Brasil", "name": "Motor"}]
+                {"code":"1234B1C8","location":"Brasil", "name": "Motor"},
+                {"code":"1234B1C7","location":"Brasil", "name": "Motor"}
+            ]
         ```
     - (POST) /vessel/:code:/items/deactivate - it should deactivate in the specified vessel the items set on the body
         Exemple:
