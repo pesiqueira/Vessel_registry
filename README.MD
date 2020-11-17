@@ -9,24 +9,24 @@
 ## API Usage
 - Vessel Registry
     - (GET) /vessel - it should return all vessels code or []
-    - (GET) /vessel/<vessel_code> - it should return the vessel information or a "not found" message
+    - (GET) /vessel/:vessel_code: - it should return the vessel information or a "not found" message
 
     - (POST) /vessel - it should register the vessel code sent by body request in JSON format
         Exemple:
         `
             {"code":"AB127"}
         `
-    - (DELETE) /vessel/<vessel_code> - it should delete the vessel of db or a "not found" message
+    - (DELETE) /vessel/:vessel_code: - it should delete the vessel of db or a "not found" message
 
 - Vessel Item Registry
-    - (GET) /vessel/<code>/items - it should return all items of the specified vessel
-    - (GET) /vessel/<code>/items/<code_item> - it should return the item with the specified code item and the specified vessel
-    - (POST) /vessel/<code>/items - it should create a new item in the specified vessel
+    - (GET) /vessel/:code:/items - it should return all items of the specified vessel
+    - (GET) /vessel/:code:/items/:code_item: - it should return the item with the specified code item and the specified vessel
+    - (POST) /vessel/:code:/items - it should create a new item in the specified vessel
         Exemple:
         `
             [{"code":"1234B1C8","location":"Brasil", "name": "Motor"},{"code":"1234B1C7","location":"Brasil", "name": "Motor"}]
         `
-    - (POST) /vessel/<code>/items/deactivate - it should deactivate in the specified vessel the items set on the body
+    - (POST) /vessel/:code:/items/deactivate - it should deactivate in the specified vessel the items set on the body
         Exemple:
         `
             \[
