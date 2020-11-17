@@ -7,14 +7,38 @@
 - unittest
 
 ## API Usage
-- (GET) /vessel - it should return all vessels code or []
-- (GET) /vessel/<vessel_code> - it should return the vessel code or a "not found" message
+- Vessel Registry
+    - (GET) /vessel - it should return all vessels code or []
+    - (GET) /vessel/<vessel_code> - it should return the vessel information or a "not found" message
 
-- (POST) /vessel - it should register the vessel code sent by body request in JSON format
-Exemple:
-`
-    {"code":"AB127"}
-`
+    - (POST) /vessel - it should register the vessel code sent by body request in JSON format
+        Exemple:
+        `
+            {"code":"AB127"}
+        `
+    - (DELETE) /vessel/<vessel_code> - it should delete the vessel of db or a "not found" message
+
+- Vessel Item Registry
+    - (GET) /vessel/<code>/items - it should return all items of the specified vessel
+    - (GET) /vessel/<code>/items/<code_item> - it should return the item with the specified code item and the specified vessel
+    - (POST) /vessel/<code>/items - it should create a new item in the specified vessel
+        Exemple:
+        `
+            [{"code":"1234B1C8","location":"Brasil", "name": "Motor"},{"code":"1234B1C7","location":"Brasil", "name": "Motor"}]
+        `
+    - (POST) /vessel/<code>/items/deactivate - it should deactivate in the specified vessel the items set on the body
+        Exemple:
+        `
+            \[
+                {
+                    "code":"1234B1C8"
+                },
+                {
+                    "code":"1234B1C7"
+                }
+            \]
+        `
+
 
 ## Installation
 
@@ -25,20 +49,11 @@ Exemple:
 
 In the project directory, you can run:
 
-### `npm start`
+### `python3 app.py`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Use [http://localhost:5000](http://localhost:5000) to use the APIs
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `python3 -m unittest`
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+It runs the unittest module using the scripts at tests directory
